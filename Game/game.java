@@ -2,7 +2,7 @@ package Game;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Game extends PApplet {
+public class game extends PApplet {
 	Cactus jeff;
 	Cactus harry;
 	
