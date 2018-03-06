@@ -2,13 +2,13 @@ package Game;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Cactus {
+public class Dino {
 	// Fields
 	PImage img;
 	PApplet window;
 	private int x, y;
 	// Constructor
-	public Cactus(int x, int y, PApplet window, String filename) {
+	public Dino(int x, int y, PApplet window, String filename) {
 		this.x = x;
 		this.y = y;
 		this.window = window;
