@@ -13,7 +13,7 @@ public class Cactus {
 		this.y = y;
 		this.window = window;
 		this.img = window.loadImage(filename);
-		
+	//test	
 	}
 	
 	//draw method
