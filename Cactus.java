@@ -19,6 +19,31 @@ public class Cactus {
 	public void draw() {
 		window.image(img, x, y);
 	}
+	
+	public void moveRight(int distance) {
+		this.x += distance;
+	}
+	
+	public void moveLeft(int distance) {
+		this.x -= distance;
+	}
+	
+	public void setPosition(int X, int Y) {
+		this.x = X;
+		this.y = Y;
+	}
+	
+	public boolean isOffScreenToLeft() {
+		return (x < 0);
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+	
+	public int getY() {
+		return this.y;
+	}
 
 	
 	
