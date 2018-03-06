@@ -6,13 +6,16 @@ public class Dino {
 	// Fields
 	PImage img;
 	PApplet window;
-	private int x, y;
+	private int x, y, yspeed;
+	float gravity;
 	// Constructor
 	public Dino(int x, int y, PApplet window, String filename) {
 		this.x = x;
 		this.y = y;
 		this.window = window;
 		this.img = window.loadImage(filename);
+		this.yspeed = 10;
+		this.gravity = 0.4f;
 	}
 	
 	//draw method
@@ -43,6 +46,22 @@ public class Dino {
 	
 	public int getY() {
 		return this.y;
+	}
+	
+	public void jump() {
+		if(y > 150) {
+		this.y -= yspeed;
+		}
+	}
+	
+	public void updatePosition() {
+		if (this.y < 200) {
+		this.y -= yspeed;
+		this.yspeed -= this.gravity;
+		}
+		else {
+			this.y = 200;
+		}
 	}
 	
 	
