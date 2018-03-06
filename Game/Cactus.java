@@ -45,6 +45,8 @@ public class Cactus {
 	public int getY() {
 		return this.y;
 	}
+	
+	
 
 	
 	
