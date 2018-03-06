@@ -1,3 +1,4 @@
+package Game;
 import processing.core.PApplet;
 import processing.core.PImage;
 
