@@ -6,10 +6,11 @@ public class Dino {
 	// Fields
 	PImage img;
 	PApplet window;
-	private int x, y, yspeed;
+	private float x, y, yspeed;
+	private String filename;
 	float gravity;
 	// Constructor
-	public Dino(int x, int y, PApplet window, String filename) {
+	public Dino(float x, float y, PApplet window, String filename) {
 		this.x = x;
 		this.y = y;
 		this.window = window;
@@ -20,6 +21,7 @@ public class Dino {
 	
 	//draw method
 	public void draw() {
+		
 		window.image(img, x, y);
 	}
 	
@@ -40,28 +42,37 @@ public class Dino {
 		return (x < 0);
 	}
 	
-	public int getX() {
+	public float getX() {
 		return this.x;
 	}
 	
-	public int getY() {
+	public float getY() {
 		return this.y;
 	}
 	
 	public void jump() {
-		if(y > 150) {
-		this.y -= yspeed;
+		if(this.y == 200) {
+		this.yspeed = 10;
+			this.y -= yspeed;
+		updatePosition();
 		}
 	}
 	
 	public void updatePosition() {
 		if (this.y < 200) {
-		this.y -= yspeed;
-		this.yspeed -= this.gravity;
+		this.y = this.y - yspeed;
+		this.yspeed = (this.yspeed - this.gravity);
 		}
 		else {
 			this.y = 200;
 		}
+	}
+	
+	public isIntervalOverlapping(x1, width1, x2, width2) {
+		if (x2 > )
+	}
+	public boolean isCollidingWithCactus(Cactus cact) {
+		boolean xOverlap = isIntervalOverlapping();
 	}
 	
 	

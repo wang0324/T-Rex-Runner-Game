@@ -8,6 +8,7 @@ public class game extends PApplet {
 	 */
 	private String a = "../assets/t_rex_running1.png", b = "../assets/t_rex_running2.png";
 	protected int count = 0, counter = 0;
+	private int speed = 8;
 	private static final long serialVersionUID = 1L;
 	Cactus jeff;
 	Cactus harry;
@@ -24,30 +25,30 @@ public class game extends PApplet {
 	public void draw() {
 		background(200);
 		line(0, 300, 1000, 300);
-		jeff.moveLeft(8);
-		harry.moveLeft(8);
+		jeff.moveLeft(speed);
+		harry.moveLeft(speed);
+		dino.updatePosition();
 		if (jeff.isOffScreenToLeft()) {
-			jeff.setPosition((int)(Math.random()*1500 + 300), 210);
+			jeff.setPosition((int)(Math.random()*1000 + 800), 210);
 		}
 		
 		else if(harry.isOffScreenToLeft()) {
-			harry.setPosition((int)(Math.random()*1500 + 300), 230);
+			harry.setPosition((int)(Math.random()*1000 + 800), 230);
 		}
 		
-		keyReleased();
 		jeff.draw();
 		harry.draw();
 		dino.draw();
-		animate();
+		//animate();
 		counter++;
 		
 	}
 	
 	
-	public void keyReleased() {
+	public void keyPressed() {
 		if (key == ' ') {
 			dino.jump();	
-			dino.updatePosition();
+			
 			
 		}
 	}
