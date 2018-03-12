@@ -8,16 +8,17 @@ public class game extends PApplet {
 	 */
 	private String a = "../assets/t_rex_running1.png", b = "../assets/t_rex_running2.png";
 	protected int count = 0, counter = 0;
-	private int speed = 8;
+	private int speed = 8, timer = 0;
 	private static final long serialVersionUID = 1L;
+	private boolean game = true;
 	Cactus jeff;
 	Cactus harry;
 	Dino dino;
 	public void setup() {
 		size(1000, 400);
-		jeff = new Cactus(400, 210, this, "../assets/cactus1.png");
-		harry = new Cactus(600, 230, this, "../assets/shortCactus2.png");
-		dino = new Dino(100, 200, this, "../assets/t_rex_running1.png");
+		jeff = new Cactus(2000, 210, this, "../assets/cactus1.png");
+		harry = new Cactus(1500, 230, this, "../assets/shortCactus2.png");
+		dino = new Dino(100, 100, this, "../assets/t_rex_running1.png");
 		
 		
 	}
@@ -36,35 +37,29 @@ public class game extends PApplet {
 			harry.setPosition((int)(Math.random()*1000 + 800), 230);
 		}
 		
+		if((dino.isCollidingWithCactus(harry) || dino.isCollidingWithCactus(jeff))) {
+			text("Game Over!", 100, 100);
+			speed = 0;
+			game = false;
+		}
 		jeff.draw();
 		harry.draw();
 		dino.draw();
 		//animate();
-		counter++;
+		timer++;
+		if (timer > 500) {
+			speed++;
+			timer = 0;
+		}
 		
 	}
 	
 	
 	public void keyPressed() {
-		if (key == ' ') {
+		if (key == ' ' && game) {
 			dino.jump();	
-			
-			
+			game = true;
 		}
 	}
 	
-	public void animate() {
-		if (counter > 10) {
-			counter = 0;
-			if (count == 0) {
-				dino = new Dino(dino.getX(), dino.getY(), this, b);
-			count = 1;
-			}
-			
-			else {
-				dino = new Dino(dino.getX(), dino.getY(), this, a);
-				count = 0;
-			}
-		}
-	}
 }

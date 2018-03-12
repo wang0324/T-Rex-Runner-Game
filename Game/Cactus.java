@@ -6,9 +6,10 @@ public class Cactus {
 	// Fields
 	PImage img;
 	PApplet window;
-	private int x, y;
+	private float x, y;
+	private float width;
 	// Constructor
-	public Cactus(int x, int y, PApplet window, String filename) {
+	public Cactus(float x, float y, PApplet window, String filename) {
 		this.x = x;
 		this.y = y;
 		this.window = window;
@@ -37,12 +38,20 @@ public class Cactus {
 		return (x < 0);
 	}
 	
-	public int getX() {
+	public float getX() {
 		return this.x;
 	}
 	
-	public int getY() {
+	public float getY() {
 		return this.y;
+	}
+	
+	public float getWidth() {
+		return img.width;
+	}
+	
+	public float getHeight() {
+		return img.height;
 	}
 	
 	

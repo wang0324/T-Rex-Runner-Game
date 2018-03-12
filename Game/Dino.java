@@ -8,7 +8,8 @@ public class Dino {
 	PApplet window;
 	private float x, y, yspeed;
 	private String filename;
-	float gravity;
+	private float width, height;
+	protected float gravity;
 	// Constructor
 	public Dino(float x, float y, PApplet window, String filename) {
 		this.x = x;
@@ -17,6 +18,8 @@ public class Dino {
 		this.img = window.loadImage(filename);
 		this.yspeed = 10;
 		this.gravity = 0.4f;
+		this.width = img.width;
+		this.height = img.height;
 	}
 	
 	//draw method
@@ -68,11 +71,29 @@ public class Dino {
 		}
 	}
 	
-	public isIntervalOverlapping(x1, width1, x2, width2) {
-		if (x2 > )
+	public boolean isIntervalOverlapping(float x1, float width1,float x2,float width2) {
+		if (x1 + width1 < x2) {
+			return false;
+		}
+		
+		else if(x2 + width2 < x1) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	public boolean isCollidingWithCactus(Cactus cact) {
-		boolean xOverlap = isIntervalOverlapping();
+		boolean xOverlap = isIntervalOverlapping(this.x, this.width, cact.getX(), cact.getWidth());
+		boolean yOverlap = isIntervalOverlapping(this.y, this.height, cact.getY(), cact.getHeight());
+		
+		if(xOverlap == true && yOverlap == true) {
+			return true;
+		}
+		
+		else {
+			return false;
+		}
 	}
 	
 	
