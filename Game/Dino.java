@@ -23,9 +23,17 @@ public class Dino {
 	}
 	
 	//draw method
-	public void draw() {
-		
-		window.image(img, x, y);
+	public void draw(int count, boolean lose) {
+		if (lose) {
+		if (count > 5) {
+			img = window.loadImage("../assets/t_rex_running1.png");
+			window.image(img, x, y);
+		}
+		else {
+			img = window.loadImage("../assets/t_rex_running2.png");
+			window.image(img, x, y);
+		}
+		}
 	}
 	
 	public void moveRight(int distance) {
