@@ -78,7 +78,7 @@ public class Dino {
 			this.y = 200;
 		}
 	}
-	
+	//part 
 	public boolean isIntervalOverlapping(float x1, float width1,float x2,float width2) {
 		if (x1 + width1 < x2) {
 			return false;
@@ -91,6 +91,7 @@ public class Dino {
 			return true;
 		}
 	}
+	//collision testing
 	public boolean isCollidingWithCactus(Cactus cact) {
 		boolean xOverlap = isIntervalOverlapping(this.x, this.width, cact.getX(), cact.getWidth());
 		boolean yOverlap = isIntervalOverlapping(this.y, this.height, cact.getY(), cact.getHeight());
